@@ -1,0 +1,23 @@
+sudo: required
+
+dist: focal
+addons:
+  apt:
+    update: true
+
+language: python
+
+jobs:
+  include:
+    - stage: test
+      compiler: gcc
+      
+before_install:
+  - pwd
+  - ls
+  
+install:
+  - ls
+
+script:
+  - ls
