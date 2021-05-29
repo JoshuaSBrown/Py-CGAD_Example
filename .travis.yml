@@ -27,7 +27,7 @@ install:
 script:
   - echo "Display env variables"
   - env
-  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending" --verbose 1
+  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
   - echo "Should display pending status at current commit for 5 seconds"
     #  - sleep 5
     #  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "error"

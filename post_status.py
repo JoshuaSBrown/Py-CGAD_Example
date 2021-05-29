@@ -7,7 +7,7 @@ class PostStatusApp(GitHubApp):
     def __init__(self, verbosity_in):
         if isinstance(verbosity_in,list):
             verbosity_in = verbosity_in[0]
-        super().__init__(117711,'StatusApp','lanl','Py-CGAD',verbosity=verbosity_in)
+        super().__init__(117711,'StatusApp','JoshuaSBrown','Py-CGAD_Example',verbosity=verbosity_in)
 
 
 def main(**kwargs):
@@ -15,7 +15,7 @@ def main(**kwargs):
     app = PostStatusApp(kwargs['verbose'])
     app.initialize(pem_file=kwargs['permissions'])
     app.postStatus(kwargs['status'],context="none",description="none",target_url="none")
-
+    app.printStatus()
 
 if __name__ == '__main__':
 
