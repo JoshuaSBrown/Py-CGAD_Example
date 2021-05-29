@@ -4,13 +4,15 @@ from py_cgad.githubapp import GitHubApp
 
 class PostStatusApp(GitHubApp):
 
-    def __init__(self):
-        super().__init__(117711,'StatusApp','lanl','Py-CGAD')
+    def __init__(self, verbosity_in):
+        if is instance(verbosity_in,list):
+            verbosity_in = verbosity_in[0]
+        super().__init__(117711,'StatusApp','lanl','Py-CGAD',verbosity=verbosity_in)
 
 
 def main(**kwargs):
 
-    app = PostStatusApp()
+    app = PostStatusApp(kwargs['verbose'])
     app.initialize(pem_file=kwargs['permissions'])
     app.postStatus(kwargs['status'])
 
@@ -37,6 +39,16 @@ if __name__ == '__main__':
             type=str,
             nargs=1,
             required=True,
+            help=desc)
+
+    desc = ('Vebosity of output.')
+
+    parser.add_argument(
+            '--verbose',
+            '-v',
+            type=int,
+            nargs=1,
+            default=0,
             help=desc)
 
     args = parser.parse_args()
