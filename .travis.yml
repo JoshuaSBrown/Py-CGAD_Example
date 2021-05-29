@@ -15,7 +15,7 @@ before_install:
   - pwd
   - ls
   - openssl aes-256-cbc -K $encrypted_ecac9f3e2851_key -iv $encrypted_ecac9f3e2851_iv -in statusreportingapp.2021-05-29.private-key.pem.enc -out statusreportingapp.2021-05-29.private-key.pem -d
-  - git clone git@github.com:lanl/Py-CGAD.git
+  - git clone https://github.com/lanl/Py-CGAD.git
 
 install:
   - ls
