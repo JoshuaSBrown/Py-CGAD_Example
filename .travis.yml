@@ -18,7 +18,8 @@ before_install:
   - git clone https://github.com/lanl/Py-CGAD.git
 
 install:
-  - sudo python3 -m pip install Py-CGAD/ # --user flag is not allowed in travis virtual env
+  - python3 -m pip install Py-CGAD --target external/ # --user flag is not allowed in travis virtual env
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)/external/
   
 script:
   - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
