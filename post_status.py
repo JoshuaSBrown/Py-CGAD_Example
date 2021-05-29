@@ -1,5 +1,6 @@
 
-import py-cgad.GitHubApp
+import argparse
+from py_cgad.githubapp import GitHubApp
 
 class PostStatusApp(GitHubApp):
 
