@@ -20,7 +20,7 @@ before_install:
 
 install:
   - ls
-  - sudo apt-get install gnutls-bin
+  - sudo apt-get install gnutls-bin libghc-gnutls-dev
   - python3 -m pip install Py-CGAD/  # --user flag is not allowed in travis virtual env
   
 script:
