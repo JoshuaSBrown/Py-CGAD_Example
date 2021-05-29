@@ -18,10 +18,7 @@ before_install:
   - git clone https://github.com/lanl/Py-CGAD.git
 
 install:
-  - ls
-  - which python3
-  - which pip
-  - python3 -m pip install Py-CGAD/ --user
+  - sudo python3 -m pip install Py-CGAD/
   
 script:
   - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
