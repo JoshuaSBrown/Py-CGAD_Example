@@ -18,14 +18,14 @@ before_install:
   - git clone https://github.com/lanl/Py-CGAD.git
 
 install:
-  - sudo python3 -m pip install Py-CGAD/
+  - sudo python3 -m pip install Py-CGAD/ # --user flag is not allowed in travis virtual env
   
 script:
-  - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
+  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
   - echo "Should display pending status at current commit for 5 seconds"
   - sleep 5
-  - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "error"
+  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "error"
   - echo "Should display error status at current commit for 5 seconds"
   - sleep 5
-  - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "success"
+  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "success"
   - echo "Should display success status at current commit"
