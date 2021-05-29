@@ -19,8 +19,8 @@ before_install:
 
 install:
   - ls
-  - apt-get install python3
-  - apt-get install pip
+  - which python3
+  - which pip
   - python3 -m pip install Py-CGAD/ --user
   
 script:
