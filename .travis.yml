@@ -10,14 +10,25 @@ language: python
 jobs:
   include:
     - stage: test
-      compiler: gcc
       
 before_install:
   - pwd
   - ls
-  
+  - openssl aes-256-cbc -K $encrypted_ecac9f3e2851_key -iv $encrypted_ecac9f3e2851_iv -in statusreportingapp.2021-05-29.private-key.pem.enc -out statusreportingapp.2021-05-29.private-key.pem -d
+  - git clone git@github.com:lanl/Py-CGAD.git
+
 install:
   - ls
-
+  - apt-get install python3
+  - apt-get install pip
+  - python3 -m pip install Py-CGAD/ --user
+  
 script:
-  - ls
+  - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
+  - echo "Should display pending status at current commit for 5 seconds"
+  - sleep 5
+  - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "error"
+  - echo "Should display error status at current commit for 5 seconds"
+  - sleep 5
+  - ./post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "success"
+  - echo "Should display success status at current commit"
