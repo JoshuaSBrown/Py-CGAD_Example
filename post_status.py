@@ -14,7 +14,7 @@ def main(**kwargs):
 
     app = PostStatusApp(kwargs['verbose'])
     app.initialize(pem_file=kwargs['permissions'])
-    app.postStatus(kwargs['status'])
+    app.postStatus(kwargs['status'],'Status App')
     app.printStatus()
 
 if __name__ == '__main__':
