@@ -29,7 +29,7 @@ script:
   - env
   - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "pending"
   - echo "Should display pending status at current commit for 5 seconds"
-    #  - sleep 5
+  - sleep 5
     #  - python3 post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "error"
     #  - echo "Should display error status at current commit for 5 seconds"
     #  - sleep 5
