@@ -21,5 +21,6 @@ def test_status_app():
             context='Status App Test')
     data = app.getStatus(first_commit_of_repo)
 
-    commit_test_error = ''
+    commit_test_error = '2c7d52e095be03b896f380b86bd036990d6ffcc8'
+    commit_test_success = ''
     print(json.dumps(data, indent=4))
