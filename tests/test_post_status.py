@@ -14,10 +14,12 @@ def test_status_app():
     # For testing purposes we will use the first commit of the repo
     #first_commit_of_repo = 'b71e903d0c59620b15257227c8d832fa4c5f0221'
 
-    commit_test_pending = '5788421d9a356e4705b83e4ff3b8472f8ff86589'
+    commit_test_pending = '94eed4b8ffbfae827c42f0a8950ddb4e5c75c250'
     app.postStatus(
             'pending',
             commit_sha=first_commit_of_repo,
             context='Status App Test')
     data = app.getStatus(first_commit_of_repo)
+
+    commit_test_error = ''
     print(json.dumps(data, indent=4))
