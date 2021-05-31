@@ -8,9 +8,8 @@ from status.status_app import StatusApp
 def test_app():
     app = StatusApp()
 
-    current_path = os.path.abspath(__file__)
-    repo_path = os.path.join(current_path, "../")
-    repo_path = os.path.abspath(repo_path)
+    current_path = os.path.remove(os.path.abspath(__file__), __file__)
+    repo_path = os.path.normpath(os.path.join(current_path, "../"))
     pem_file_path = os.path.join(
         repo_path, "statusreportingapp.2021-05-29.private-key.pem"
     )
