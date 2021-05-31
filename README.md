@@ -15,6 +15,13 @@ python3 -m pytest
 ```
 
 To see tests with printed output 
+
 ```
 python3 -m pytest -s
+```
+
+To run the post_status.py script
+
+```
+PYTHONPATH=$PYTHONPATH:status python3 ./bin/post_status.py --help
 ```

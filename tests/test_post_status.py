@@ -67,7 +67,3 @@ def test_post_status(test_app):
     test_app.postStatus('success',commit_sha = test_commit)
     state, code, _ = test_app.getState(test_commit)
     assert state == 'success'
-    # For testing purposes we will use the first commit of the repo
-    #first_commit_of_repo = 'b71e903d0c59620b15257227c8d832fa4c5f0221'
-    #data = app.getStatus(first_commit_of_repo)
-    #print(json.dumps(data, indent=4))
