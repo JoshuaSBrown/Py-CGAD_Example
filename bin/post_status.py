@@ -1,18 +1,10 @@
 
 import argparse
-from py_cgad.githubapp import GitHubApp
-
-class PostStatusApp(GitHubApp):
-
-    def __init__(self, verbosity_in):
-        if isinstance(verbosity_in,list):
-            verbosity_in = verbosity_in[0]
-        super().__init__(117711,'StatusApp','JoshuaSBrown','PyCGADExample',verbosity=verbosity_in)
-
+from status.status_app import StatusApp
 
 def main(**kwargs):
 
-    app = PostStatusApp(kwargs['verbose'])
+    app = StatusApp(kwargs['verbose'])
     app.initialize(pem_file=kwargs['permissions'])
     app.postStatus(kwargs['status'],context='Status App')
     app.printStatus()
