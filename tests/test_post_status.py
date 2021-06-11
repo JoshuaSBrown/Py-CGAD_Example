@@ -14,7 +14,7 @@ def test_app():
             repo_path, "statusreportingapp.2021-05-29.private-key.pem"
         )
     if os.path.isfile(default_pem):
-        pem_file_path = default_pem 
+        pem_file_path = default_pem
     else:
         for file_name in os.listdir(repo_path):
             if file_name.endswith(".pem"):
