@@ -18,7 +18,7 @@ def test_app():
         for file_name in os.listdir(repo_path):
             if file_name.endswith(".pem"):
                 print("Found pem file {}".format(file_name))
-                pem_file_path = os.path.join(repo_path, file_name))
+                pem_file_path = os.path.join(repo_path, file_name)
                 break
 
     app.initialize(pem_file=pem_file_path, path_to_repo=app.generateCandidateRepoPath())
