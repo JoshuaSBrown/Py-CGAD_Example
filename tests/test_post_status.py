@@ -12,9 +12,10 @@ def test_app():
     repo_path = os.path.normpath(os.path.join(current_path, "../"))
     for file_name in os.listdir(repo_path):
         if file_name.lower().endswith(".pem"):
-            print("Found pem file {}".format(file_name))
-            pem_file_path = os.path.join(repo_path, file_name)
-            break
+            if "statusreportingapp" in file_name:
+                print("Found pem file {}".format(file_name))
+                pem_file_path = os.path.join(repo_path, file_name)
+                break
 
     app.initialize(pem_file=pem_file_path, path_to_repo=app.generateCandidateRepoPath())
 
