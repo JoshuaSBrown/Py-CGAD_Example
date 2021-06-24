@@ -80,6 +80,8 @@ def test_post_status(test_app):
         elif sys.version_info[1] == 9:
             test_commit = commit_for_python_version3_9
 
+    print("test commit is {}".format(test_commit))
+
     test_app.postStatus("pending", commit_sha=test_commit)
     # Will return the latest state which should now be pending
     state, code, _ = test_app.getState(test_commit)
