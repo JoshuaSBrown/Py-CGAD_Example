@@ -66,7 +66,7 @@ def test_get_status(test_app):
 
 def test_post_status(test_app):
 
-    # This is because of the ci we are testing different python version in 
+    # This is because of the ci we are testing different python version in
     # parallel and we don't want to overwrite changes to the status
     commit_for_python_verion3_7 = "5ac6e084ccdfd9375537a485345f2909b748648e"
     commit_for_python_verion3_8 = "a76b68983e42255589cda8b4de47133aef22c984"
