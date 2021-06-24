@@ -12,12 +12,17 @@ def test_app():
 
     current_path, _ = os.path.split(os.path.abspath(__file__))
     repo_path = os.path.normpath(os.path.join(current_path, "../"))
+    pem_file_path = None
     for file_name in os.listdir(repo_path):
         if file_name.lower().endswith(".pem"):
             if "statusreportingapp" in file_name:
                 print("Found pem file {}".format(file_name))
                 pem_file_path = os.path.join(repo_path, file_name)
                 break
+
+    if pem_file_path is None:
+        print("Unable to locate suitable .pem file for statusapp")
+        exit(1)
 
     app.initialize(pem_file=pem_file_path, path_to_repo=app.generateCandidateRepoPath())
 
