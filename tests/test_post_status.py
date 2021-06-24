@@ -85,9 +85,31 @@ def test_post_status(test_app):
     test_app.postStatus("pending", commit_sha=test_commit)
     # Will return the latest state which should now be pending
     state, code, _ = test_app.getState(test_commit)
+
+    # Because it might be a bit slow will pause and check
+    # to make sure the state has been updated
+    count = 0
+    while state != "pending":
+        time.sleep(1)
+        state, code, _ = test_app.getState(test_commit)
+        if count > 3: 
+            break
+        count += 1
+
     assert state == "pending"
     assert code == 200
     test_app.postStatus("success", commit_sha=test_commit)
     state, code, _ = test_app.getState(test_commit)
+
+    # Because it might be a bit slow will pause and check
+    # to make sure the state has been updated
+    count = 0
+    while state != "success":
+        time.sleep(1)
+        state, code, _ = test_app.getState(test_commit)
+        if count > 3: 
+            break
+        count += 1
+
     assert state == "success"
     assert code == 200
