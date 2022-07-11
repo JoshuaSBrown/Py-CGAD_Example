@@ -90,7 +90,7 @@ def test_post_status(test_app):
     while state != "pending":
         time.sleep(1)
         state, code, _ = test_app.getState(test_commit)
-        if count > 3: 
+        if count > 3:
             break
         count += 1
 
@@ -105,7 +105,7 @@ def test_post_status(test_app):
     while state != "success":
         time.sleep(1)
         state, code, _ = test_app.getState(test_commit)
-        if count > 3: 
+        if count > 3:
             break
         count += 1
 
