@@ -28,4 +28,4 @@ script:
   - echo "Display env variables"
   - env
   - python3 -m pytest -s
-  - PYTHONPATH=$PYTHONPATH:status python3 ./bin/post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "success"
+  - PYTHONPATH=$PYTHONPATH:status python3 ./bin/post_status.py --permissions statusreportingapp.2021-05-29.private-key.pem --status "failed"
